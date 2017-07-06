@@ -1,0 +1,6 @@
+ <div class="row">
+<button class="btn btn-primary" (click)="addAgency()">Add Agency</button>
+ <div class="col-md-3" *ngFor="let agency of items | async">
+    <app-agency [agency]="agency" (update)="update($event)" (remove)="delete($event)" ></app-agency>{{agency.AgencyName}}
+  </div>  
+ </div>

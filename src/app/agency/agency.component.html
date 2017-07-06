@@ -1,0 +1,22 @@
+<div *ngIf="!edit;else editview;" class="card" style="width: 20rem;margin-top: 2rem">
+  <img class="card-img-top" src="../../assets/images.jpg" alt="Card image cap">
+  <div class="card-block">
+    <h4 class="card-title">{{agency.AgencyName}}</h4>
+    <p class="card-text">{{agency.ServerName}}</p>
+    <p class="card-text">{{agency.IISUrl}}</p>
+    <button (click)="Edit()" class="btn btn-primary">Edit</button>
+    <button (click)="Remove(agency)" class="btn btn-danger">Remove</button>
+  </div>
+</div>
+<ng-template #editview>
+  <div class="card" style="width: 20rem;margin-top: 2rem">
+    <img class="card-img-top" src="../../assets/images.jpg" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title"><input [ngModel]="agency.AgencyName" type="text" value="AgencyName" #AgencyName /></h4>
+      <p class="card-text"><input [ngModel]="agency.ServerName" type="text" value="Server" #ServerName /></p>
+      <p class="card-text"><input [ngModel]="agency.IISUrl" type="text" value="WebService" #WebService /></p>
+      <button (click)="edit=!edit" class="btn btn-primary">Cancel</button>
+      <button (click)="Save(AgencyName.value,ServerName.value,WebService.value)" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+</ng-template>
